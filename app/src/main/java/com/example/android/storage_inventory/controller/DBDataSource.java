@@ -10,6 +10,8 @@ import android.util.Log;
 import com.example.android.storage_inventory.database_helper.DBHelper;
 import com.example.android.storage_inventory.model.Barang;
 
+import java.util.ArrayList;
+
 /**
  * Created by Lenovo on 5/17/2017.
  */
@@ -94,6 +96,25 @@ public class DBDataSource {
 
         //kembalikan sebagai objek barang
         return barang;
+    }
+    //mengambil semua data barang
+    public ArrayList<Barang>getAllBarang(){
+        ArrayList<Barang>daftarBarang = new ArrayList<Barang>();
 
+        //select all SQL query
+        Cursor cursor = database.query(DBHelper.TABLE_NAME,
+                allColumns,null,null,null,null,null);
+
+        //pindah ke data paling pertama
+        cursor.moveToFirst();
+        //jika masih ada data, masukkan data barang ke daftar barang
+        while(!cursor.isAfterLast()){
+            Barang barang = cursorToBarang(cursor);
+            daftarBarang.add(barang);
+            cursor.moveToNext();
+        }
+        //make sure to close the cursor
+        cursor.close();
+        return daftarBarang;
     }
 }

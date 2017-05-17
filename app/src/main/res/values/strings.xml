@@ -8,6 +8,6 @@
     <string name="merk_hint">Merk Barang</string>
     <string name="tombol_submit">Submit</string>
     <string name="tombol_tambah">Tambah Data</string>
-    <string name="tombol_lihat">Lihat Data</string>
+    <string name="tombol_display">Display Data</string>
     <string name="title_view">Data Barang</string>
 </resources>

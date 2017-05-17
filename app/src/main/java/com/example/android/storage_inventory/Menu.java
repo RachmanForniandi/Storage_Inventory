@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class Menu extends Activity implements View.OnClickListener {
     private Button bTambah;
+    private Button bLihat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,8 @@ public class Menu extends Activity implements View.OnClickListener {
 
         bTambah = (Button)findViewById(R.id.button_tambah);
         bTambah.setOnClickListener(this);
+        bLihat = (Button)findViewById(R.id.button_view);
+        bLihat.setOnClickListener(this);
     }
    @Override
     public void onClick(View view){
@@ -23,6 +26,10 @@ public class Menu extends Activity implements View.OnClickListener {
            case R.id.button_tambah:
                Intent i = new Intent(this, CreateData.class);
                startActivity(i);
+               break;
+           case R.id.button_view:
+               Intent i2 = new Intent(this, ViewData.class);
+               startActivity(i2);
                break;
        }
    }
